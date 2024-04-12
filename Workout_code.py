@@ -12,6 +12,19 @@ class WorkoutPlanner:
                           "Battling Ropes", "Indoor Cycling"],
         }
     def meal_planner(self,body_type):
+        """
+        Creates a personalized meal planner based on body type 
+        
+        Args: 
+            body_type (str): The body type for which to create the meal plan
+            (Ectomorph, Mesomorph, or Endomorph)
+            
+        Returns:
+            str: A string of the meal plan for the body type selected 
+            
+        Raises:
+            ValueError: If an invalid body type is provided 
+        """
         meal_plans = {
             "Ectomorph": {
                 "Breakfast": "Oatmeal topped with strawberry and walnuts",
