@@ -11,6 +11,21 @@ class WorkoutPlanner:
             "Endomorph": ["Treadmill Sprint", "Barbell Back Squat",
                           "Battling Ropes", "Indoor Cycling"],
         }
+        
+    def get_body(self):
+        while True:
+            body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
+            if body_type in self.workout:
+                self.body_type = body_type
+                return body_type
+            else:
+                print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
+
+    def workout_routine(self):
+        
+        if self.body_type in self.workout:
+            return self.workout[self.body_type]
+
     def meal_planner(self,body_type):
         """
         Creates a personalized meal planner based on body type 
@@ -42,24 +57,26 @@ class WorkoutPlanner:
                 "Dinner": "Grilled tofu with stir-fried vegetables"
             }
         }
-        
-    def get_body(self):
-        while True:
-            body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
-            if body_type in self.workout:
-                self.body_type = body_type
-                return body_type
-            else:
-                print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
-
-    def workout_routine(self):
-        
-        if self.body_type in self.workout:
-            return self.workout[self.body_type]
-
 
 class TargetNutrition(WorkoutPlanner):
+    """
+    This is a class that represents target nutritional values based on the body 
+    type and the goal the user is trying to attain (cut or bulk). 
+    This is a subclass that inherits from the WorkoutPlanner class.
 
+    Attributes:
+        targets (dict): A dictionary containing the target nutritional values based
+        on whether the user's goal is to cut or bulk in weight.
+    
+    Methods:
+        __init__(): Initializes the TargetNutrition object.
+        get_cut_bulk_goal(): Asks the user to input their goal (cut or bulk) and
+        returns it.
+        get_nutritional_targets(): Determines the nutritional targets based on 
+        the body type and goal of the user.
+        get_body(): Asks the user to input their body type and returns it.
+    """
+    
     def __init__(self):
         super().__init__() 
         self.targets = {  
@@ -94,6 +111,6 @@ target_nutrition = TargetNutrition()
 nutritional_plan = target_nutrition.get_nutritional_targets()
 print(f"Based on your body type ({nutritional_plan['body_type']}) and goal({nutritional_plan['cut_bulk']}):")
 print(f"Workout Routine: {nutritional_plan['workout_routine']}")
-print(f"Target Nutrients:")
+print(f"Daily Target Nutrients:")
 for target in nutritional_plan["nutritional_targets"]:
     print(f"\t{target}")
