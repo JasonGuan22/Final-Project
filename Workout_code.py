@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 import json
+import re
 
 class WorkoutPlanner:
 
@@ -133,3 +134,40 @@ print(f"Workout Routine: {nutritional_plan['workout_routine']}")
 print(f"Daily Target Nutrients:")
 for target in nutritional_plan["nutritional_targets"]:
     print(f"\t{target}")
+    
+def nearest_gyms(location):
+    """Finds the nearest gyms based on user's location.
+
+    Args:
+        location (str): String that represents the location for the gym search.
+        Matches user's provided location with gym addresses that are nearest them.
+
+    Returns:
+        list: List of tuples that contains gym address information and if no 
+        near gyms are found, an empty list is returned.
+    """
+    gyms ={
+        "Crunch Fitness": "4320 Calvert Rd, College Park, MD 20740",
+        "Eppley Recreation Center": "4128 Valley Dr, College Park, MD 20742",
+        "LA Fitness": "2970 Belcrest Center Dr, Hyattsville, MD 20782",
+        "Planet Fitness": "6881 New Hampshire Ave, Takoma Park, MD 20912",
+        "UMD School of Public Health": "4200 Valley Dr, College Park, MD 20742",
+        "Ritchie Coliseum": "7675 Baltimore Ave, College Park, MD 20742",
+        "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740"
+    }
+    
+    loc_pattern = re.compile(r'\b{}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(P<zip>\d{5}))?\b'
+                         .format(location.replace(' ', r'\s')), re.IGNORECASE)
+    
+    nearest_gyms = []
+    for gym, address in gyms.items():
+        match = re.search(loc_pattern, address)
+        if match:
+            city = location
+            state = match.group('state') if match.group('state') else "" 
+            zip_code = match.group('zip') if match.group('zip') else ""
+            nearest_gyms.append((gym, address, city, state, zip_code)) 
+            
+    return nearest_gyms
+
+
