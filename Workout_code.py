@@ -26,7 +26,7 @@ class WorkoutPlanner:
         if self.body_type in self.workout:
             return self.workout[self.body_type]
 
-    def meal_planner(self,body_type):
+    def meal_planner(self, body_type):
         """
         Creates a personalized meal planner based on body type 
         
@@ -109,7 +109,7 @@ class TargetNutrition(WorkoutPlanner):
 
 target_nutrition = TargetNutrition()
 nutritional_plan = target_nutrition.get_nutritional_targets()
-print(f"Based on your body type ({nutritional_plan['body_type']}) and goal({nutritional_plan['cut_bulk']}):")
+print(f"Based on your body type ({nutritional_plan['body_type']}) and goal ({nutritional_plan['cut_bulk']}):")
 print(f"Workout Routine: {nutritional_plan['workout_routine']}")
 print(f"Daily Target Nutrients:")
 for target in nutritional_plan["nutritional_targets"]:
