@@ -1,12 +1,12 @@
-import json
 from argparse import ArgumentParser
-
+import json
 
 class WorkoutPlanner:
 
     def __init__(self):
         self.workout = {
-            "Ectomorph": ["Bench Press", "Pull Ups", "Deadlifts", "Squats"],
+            "Ectomorph": ["Bench Press", "Pull Ups", "Deadlifts", "Squats", 
+                          "Standing Military Press", "Compound Lifts"],
             "Mesomorph": ["Pushups", "Burpee", "Mountain Climbers", "Lunges"],
             "Endomorph": ["Treadmill Sprint", "Barbell Back Squat",
                           "Battling Ropes", "Indoor Cycling"],
