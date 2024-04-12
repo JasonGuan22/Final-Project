@@ -5,15 +5,15 @@ import re
 class WorkoutPlanner:
 
     def __init__(self):
-        self.workout = {
-            "Ectomorph": ["Bench Press", "Pull Ups", "Deadlifts", "Squats", 
-                          "Standing Military Press", "Compound Lifts"],
-            "Mesomorph": ["Pushups", "Burpee", "Mountain Climbers", "Lunges"],
-            "Endomorph": ["Treadmill Sprint", "Barbell Back Squat",
-                          "Battling Ropes", "Indoor Cycling"],
-        }
+        """ 
         
+        """
+        self.workout = {}
+    
     def get_body(self):
+        """ 
+        
+        """
         while True:
             body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
             if body_type in self.workout:
@@ -22,8 +22,17 @@ class WorkoutPlanner:
             else:
                 print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
 
-    def workout_routine(self):
-        
+    def workout_routine(self, input_file):
+        """ 
+        side effect: print 
+        """
+        with open(input_file, "r", encoding= "utf-8") as f:
+            for line in f:
+               workout = line.strip().split(",")
+               # {Ectomorph: [Ectomorph, Bench Press, Pull Ups, Deadlifts]} 
+               self.workout[workout[0]] = workout
+               print(self.workout)
+                
         if self.body_type in self.workout:
             return self.workout[self.body_type]
 
@@ -79,12 +88,6 @@ class TargetNutrition(WorkoutPlanner):
     """
     
     def __init__(self):
-        """
-        Initializes the TargetNutrition object. 
-        
-        Inherits attributes from WorkoutPlanner and initializes the
-        targets dictionary.
-        """
         super().__init__() 
         self.targets = {  
             "cut": ["Protein: 60g", "Carbs: 40g", "Fat: 30g"],
@@ -92,12 +95,6 @@ class TargetNutrition(WorkoutPlanner):
         }
 
     def get_cut_bulk_goal(self):
-        """
-        Asks users to input their goal (cut or bulk) and returns it.
-
-        Returns:
-            str: The user's goal (cut or bulk)
-        """
         while True:
             goal = input("Are you looking to cut or bulk (cut/bulk): ")
             if goal.lower() in self.targets:
@@ -107,13 +104,6 @@ class TargetNutrition(WorkoutPlanner):
 
     def get_nutritional_targets(self):
         
-        """
-        Determines the nutritional targets based on body type and goal.
-
-        Returns:
-            dict: A dictionary containing the nutritional targets for the user's
-            body type and goal.
-        """
         self.body_type = self.get_body()
         cut_bulk_goal = self.get_cut_bulk_goal()
         workout_routine = super().workout_routine()  
