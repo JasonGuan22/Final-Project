@@ -12,7 +12,38 @@ class WorkoutPlanner:
             "Endomorph": ["Treadmill Sprint", "Barbell Back Squat", 
                           "Battling Ropes", "Indoor Cycling"],
         }
-    
+    def meal_planner(self,body_type):
+        """
+        Creates a personalized meal planner based on body type 
+        
+        Args: 
+            body_type (str): The body type for which to create the meal plan
+            (Ectomorph, Mesomorph, or Endomorph)
+            
+        Returns:
+            str: A string of the meal plan for the body type selected 
+            
+        Raises:
+            ValueError: If an invalid body type is provided 
+        """
+        meal_plans = {
+            "Ectomorph": {
+                "Breakfast": "Oatmeal topped with strawberry and walnuts",
+                "Lunch": "Mediterranean quinoa salad with chopped veggies",
+                "Dinner": "Grilled chicken and a tomato and cucumber salad"
+            },
+            "Mesomorph": {
+                "Breakfast": "Greek yogurt parfait with pumpkin, cinnamon, peacans, and raisins toppings",
+                "Lunch": "Large salad with chopped veggies, sweet potato chunks, and avocados",
+                "Dinner": "Baked salmon, roasted broccoli, and veggies"
+            },
+            "Endomorph": {
+                "Breakfast": "Vegetable omlette",
+                "Lunch": "Sitr-fry made with chicken and peppers over brown rice",
+                "Dinner": "Grilled tofu with stir-fried vegetables"
+            }
+        }
+        
     def get_body(self):
         while True:
             body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph)")
