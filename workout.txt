@@ -1,0 +1,4 @@
+Ectomorph, Bench Press, Pull Ups, Deadlifts, Squats, Standing Military Press, Compound Lifts
+Mesomorph, Pushups, Burpee, Mountain Climbers, Lunges
+Endomorph, Treadmill Sprint, Barbell Back Squat, Battling Ropes, Indoor Cycling
+    
