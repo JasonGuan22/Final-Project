@@ -2,19 +2,33 @@ from argparse import ArgumentParser
 import json
 
 class WorkoutPlanner:
+    """ 
+    A class for planning the workout routine based on the user body type.
+    
+    Attributes:
+        workout (dict): A dictionary containing the workout routines 
+        categorized by the body type of the user.
+        
+    Methods:
+        __init__(): Initializes the WorkoutPlanner object with an empty workout
+        dictionary.
+        
+        get_body():
+            Prompts the user to input their body type either Ectomorph, 
+            Mesomorph or Endomorph.
+            
+        workout_routine (input_file: str):
+            Reads the workout routine from an input file and categorizes the
+            workout routine by the body type and prints the categorized 
+            workout routine correlated to the body type. 
+    """
 
     def __init__(self):
-        """ 
-        
-        """
         self.workout = {}
     
     def get_body(self):
-        """ 
-        
-        """
         while True:
-            body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
+            body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph)")
             if body_type in self.workout:
                 self.body_type = body_type
                 return body_type
@@ -22,16 +36,29 @@ class WorkoutPlanner:
                 print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
 
     def workout_routine(self, input_file):
-        """ 
-        side effect: print 
+        """ Reads the workout routine from an input file and categorizes the
+        workout routine by the body type and prints the categorized workout 
+        routine correlated to the body type.
+        
+        Args:
+            Input_file (str): The file path of the input file containing the
+            workout routines.
+        
+        Returns:
+            list: A list of exercises correlated with the user's body type. It
+            returns None if the body type does not match either Ectomorph, 
+            Mesomorph or Endomorph. 
+        
+        Side effects:
+            Reads from a file and modifies the workout dictionary by adding new
+            key-value pairs. 
+            Prints the updated workout dictionary to the console.
         """
         with open(input_file, "r", encoding= "utf-8") as f:
             for line in f:
                workout = line.strip().split(",")
-               # {Ectomorph: [Ectomorph, Bench Press, Pull Ups, Deadlifts]} 
                self.workout[workout[0]] = workout
                print(self.workout)
-                
         if self.body_type in self.workout:
             return self.workout[self.body_type]
 
