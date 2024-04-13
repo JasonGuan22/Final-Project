@@ -67,6 +67,18 @@ class WorkoutPlanner:
                 "Dinner": "Grilled tofu with stir-fried vegetables"
             }
         }
+        
+        if body_type not in meal_plans:
+            raise ValueError("Invalid body type. Please select Ectomorph, Mesomorph, or Endomorph.")
+        
+        select_meal_plan = meal_plans[body_type]
+        
+        meal_plan = f"Meal Plan for {body_type}: \n"
+        meal_plan += f"Breakfast: {select_meal_plan['Breakfast']}\n"
+        meal_plan += f"Lunch: {select_meal_plan['Lunch']}\n"
+        meal_plan += f"Dinner: {select_meal_plan['Dinner']}\n"
+        
+        return meal_plan
 
 class TargetNutrition(WorkoutPlanner):
     """
