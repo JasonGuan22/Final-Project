@@ -117,18 +117,16 @@ if __name__ == "__main__":
     target_nutrition = TargetNutrition("workout.json")
     nutritional_plan = target_nutrition.get_nutritional_targets()
     
-    print(f"Workout Routine: {nutritional_plan['workout_routine']}\n")
-    print(f"Based on your body type ({nutritional_plan['body_type']}) and goal ({nutritional_plan['cut_bulk']}):")
+ 
+    print(f"\nBased on your body type ({nutritional_plan['body_type']}) and goal ({nutritional_plan['cut_bulk']}):")
     
-    print(f"Workout Routine: {nutritional_plan['workout_routine']}")
-    print(f"Daily Target Nutrients:")
+    print(f"\nWorkout Routine: {nutritional_plan['workout_routine']}")
+    print(f"\nDaily Target Nutrients:")
     for target in nutritional_plan["nutritional_targets"]:
         print(f"\t{target}")
         
-    print("\n" + target_nutrition.meal_planner())
-
     meal_plan = target_nutrition.meal_planner()
-    print(meal_plan)
+    print("\n" + meal_plan)
     
     location = input("\nEnter your location: ")
     gyms_list =nearest_gyms(location)
