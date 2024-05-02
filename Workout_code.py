@@ -100,8 +100,7 @@ def nearest_gyms(location):
         "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740"
     }
     
-    loc_pattern = re.compile(r'\b{}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(P<zip>\d{5}))?\b'
-                         .format(location.replace(' ', r'\s')), re.IGNORECASE)
+    loc_pattern = re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE)
     nearest_gyms = []
     for gym, address in gyms.items():
         match = re.search(loc_pattern, address)
@@ -124,7 +123,15 @@ if __name__ == "__main__":
     print(meal_plan)
     for target in nutritional_plan["nutritional_targets"]:
         print(f"\t{target}")
-        
+    location = input("\nEnter your location: ")
+    gyms_list =nearest_gyms(location)
+    if gyms_list:
+        print("\nNearest gyms:")
+        for gym, address, city, state, zip_code in gyms_list:
+            print(f"{gym}: {address} ({city}, {state}, {zip_code})")
+    
+    else:
+        print(f"\nNo gyms found near you.")
 
 
 
