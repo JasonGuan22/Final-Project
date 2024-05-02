@@ -20,9 +20,9 @@ class WorkoutPlanner:
                 print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
 
     def workout_routine(self):
-        body_type = self.get_body()
-        if body_type in self.workout:
-            return self.workout[body_type]
+    
+        if self.body_type in self.workout:
+            return self.workout[self.body_type]
 
 
     def meal_planner(self):
