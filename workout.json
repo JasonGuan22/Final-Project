@@ -1,0 +1,14 @@
+{
+    "Ectomorph": {
+      "Workout Routine": ["Bench Press", "Pull Ups", "Deadlifts", "Squats", 
+      "Standing Military Press"]
+    },
+    "Mesomorph": {
+      "Workout Routine": ["Pushups", "Burpee", "Mountain Climbers", "Lunges"]
+    },
+    "Endomorph": {
+      "Workout Routine": ["Treadmill Sprint", "Barbell Back Squat", 
+      "Battling Ropes", "Indoor Cycling"]
+    }
+  }
+    
