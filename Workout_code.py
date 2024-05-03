@@ -97,7 +97,13 @@ def nearest_gyms(location):
         "Planet Fitness": "6881 New Hampshire Ave, Takoma Park, MD 20912",
         "UMD School of Public Health": "4200 Valley Dr, College Park, MD 20742",
         "Ritchie Coliseum": "7675 Baltimore Ave, College Park, MD 20742",
-        "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740"
+        "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740",
+        "Planet Fitness": "6100 Greenbelt Rd Unit 201, Greenbelt, MD 20770",
+        "Gold's Gym": "4595 Woodberry St, Riverdale Park, MD 20737",
+        "Greenbelt Aquatic and Fitness Center": "101 Centerway, Greenbelt, MD 20770",
+        "Prince George's Sports & Learning Complex": " 8001 Sheriff Rd, Landover, MD 20785",
+        "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
+        "CrossFit Hyattsville": "4616 Ingraham St, Hyattsville, MD 20781"
     }
     
     loc_pattern = re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE)
