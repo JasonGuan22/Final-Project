@@ -160,7 +160,7 @@ if __name__ == "__main__":
     print("\n" + meal_plan)
     
     location = input("\nEnter your location: ")
-    gyms_list =nearest_gyms(location)
+    gyms_list = nearest_gyms(location)
     if gyms_list:
         print("\nNearest gyms:")
         for gym, address, city, state, zip_code in gyms_list:
