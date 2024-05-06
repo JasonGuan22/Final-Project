@@ -8,8 +8,8 @@ class WorkoutPlanner:
 
     def __init__(self, workout_file):
         with open(workout_file, "r", encoding = "utf-8") as workouts:
-            self.workout = json.load(workouts)         
-        
+            self.workout = json.load(workouts)  
+                     
     def get_body(self):
         while True:
             body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
@@ -23,8 +23,7 @@ class WorkoutPlanner:
     
         if self.body_type in self.workout:
             return self.workout[self.body_type]
-
-
+    
     def meal_planner(self):
 
         meal_plans = {
@@ -86,10 +85,26 @@ class TargetNutrition(WorkoutPlanner):
             "cut_bulk": cut_bulk_goal,
             "nutritional_targets": self.targets[cut_bulk_goal]
         }
-        return target_plan    
+        return target_plan
+    
+class Targets: 
+    def __init__(self, workout_file):
+        self.workout_planner = WorkoutPlanner(workout_file)
+        self.target_nutrition = TargetNutrition(workout_file)
+        
+    def get_body_type(self):
+        return self.workout_planner.get_body()
+    
+    def get_nutritional_targets(self):
+        return self.target_nutrition.get_nutritional_targets()
     
 def nearest_gyms(location):
-   
+    """Finds the nearest gyms based on user's location. Args: location (str):
+    String that represents the location for the gym search. Matches user's 
+    provided location with gym addresses that are nearest them. Returns: list: 
+    List of tuples that contains gym address information and if no near gyms 
+    are found, an empty list is returned. """
+
     gyms ={
         "Crunch Fitness": "4320 Calvert Rd, College Park, MD 20740",
         "Eppley Recreation Center": "4128 Valley Dr, College Park, MD 20742",
@@ -97,7 +112,14 @@ def nearest_gyms(location):
         "Planet Fitness": "6881 New Hampshire Ave, Takoma Park, MD 20912",
         "UMD School of Public Health": "4200 Valley Dr, College Park, MD 20742",
         "Ritchie Coliseum": "7675 Baltimore Ave, College Park, MD 20742",
-        "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740"
+        "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740",
+        "Planet Fitness": "6100 Greenbelt Rd Unit 201, Greenbelt, MD 20770",
+        "Greenbelt Aquatic and Fitness Center": "101 Centerway, Greenbelt, MD 20770",\
+        "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
+        "OneLife Fitness": "1407 Research Blvd, Rockville, MD 20850",
+        "Gold's Gym": "26 Maryland Ave, Rockville, MD 20850",
+        "Planet Fitness": "1100 Wayne Ave, Silver Spring, MD 20910",
+        "LA Fitness": "8616 Cameron St, Silver Spring, MD 20910"    
     }
     
     loc_pattern = re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE)
