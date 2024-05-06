@@ -114,20 +114,17 @@ def nearest_gyms(location):
         "Ritchie Coliseum": "7675 Baltimore Ave, College Park, MD 20742",
         "Orange Theory": "8321 Baltimore Ave, College Park, MD 20740",
         "Planet Fitness": "6100 Greenbelt Rd Unit 201, Greenbelt, MD 20770",
-<<<<<<< HEAD
         "Greenbelt Aquatic and Fitness Center": "101 Centerway, Greenbelt, MD 20770",\
         "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
         "OneLife Fitness": "1407 Research Blvd, Rockville, MD 20850",
         "Gold's Gym": "26 Maryland Ave, Rockville, MD 20850",
         "Planet Fitness": "1100 Wayne Ave, Silver Spring, MD 20910",
         "LA Fitness": "8616 Cameron St, Silver Spring, MD 20910"    
-=======
         "Gold's Gym": "4595 Woodberry St, Riverdale Park, MD 20737",
         "Greenbelt Aquatic and Fitness Center": "101 Centerway, Greenbelt, MD 20770",
         "Prince George's Sports & Learning Complex": " 8001 Sheriff Rd, Landover, MD 20785",
         "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
         "CrossFit Hyattsville": "4616 Ingraham St, Hyattsville, MD 20781"
->>>>>>> 4e46ebc87b38ff81567b7fe620f4bcb0f8934c4e
     }
     
     loc_pattern = re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE)
