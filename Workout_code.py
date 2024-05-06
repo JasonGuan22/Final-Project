@@ -126,7 +126,7 @@ def nearest_gyms(location):
         "CrossFit Hyattsville": "4616 Ingraham St, Hyattsville, MD 20781"
     }
     
-    loc_pattern = re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE)
+    loc_pattern = (re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE))
     nearest_gyms = []
     for gym, address in gyms.items():
         match = re.search(loc_pattern, address)
@@ -138,12 +138,17 @@ def nearest_gyms(location):
             
     return nearest_gyms
 
+def Progress_Board(max_rank, min_progression_score):
+    score = pd.read_csv("Workout_ScoreBoard.csv", encoding="utf-8")
+    active_progression = (score[(score["Rank"] <= max_rank) & 
+                    (score["Progression Score"] > min_progression_score)])
+    return active_progression
+
 
 if __name__ == "__main__":
     target_nutrition = TargetNutrition("workout.json")
     nutritional_plan = target_nutrition.get_nutritional_targets()
     
- 
     print(f"\nBased on your body type ({nutritional_plan['body_type']}) and goal ({nutritional_plan['cut_bulk']}):")
     
     print(f"\nWorkout Routine: {nutritional_plan['workout_routine']}")
@@ -160,9 +165,16 @@ if __name__ == "__main__":
         print("\nNearest gyms:")
         for gym, address, city, state, zip_code in gyms_list:
             print(f"{gym}: {address} ({city}, {state}, {zip_code})")
-    
     else:
         print(f"\nNo gyms found near you.")
+        
+    print("\nWorkout app user progression board: ")
+    
+    max_rank_input = int(input("\nEnter the maximum rank: "))
+    min_progression_score_input = int(input("\nEnter the minimum progression score: "))
+
+    filtered_data = Progress_Board(max_rank_input, min_progression_score_input)
+    print(filtered_data)
 
 
 
