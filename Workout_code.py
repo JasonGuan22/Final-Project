@@ -97,7 +97,7 @@ class Targets:
     
     def get_nutritional_targets(self):
         return self.target_nutrition.get_nutritional_targets()
-    
+            
 def nearest_gyms(location):
     """Finds the nearest gyms based on user's location. Args: location (str):
     String that represents the location for the gym search. Matches user's 
