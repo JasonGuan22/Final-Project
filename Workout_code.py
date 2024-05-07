@@ -5,12 +5,49 @@ import json
 import re
 
 class WorkoutPlanner:
-
+    """ This class helps users plan their workouts based on their bodytype.
+    
+    Attributes:
+        workout_file (str): The path to the JSON file containing workout data. 
+        In the JSON data is formatted as a dictionary with body types as keys
+        and workout routines as values.
+            
+        workout (dict): A dictionary loaded from the "workout_file", containing
+        the workout routines for the different body types (Ectomorph, Mesomorph,
+        Endomorph). 
+            
+        body_type (str): The user's selected body type, where it get set by the 
+        "get_body" method.
+    """
     def __init__(self, workout_file):
+        """ Initializes the WorkoutPlanner object.
+        
+        Args:
+            workout_file (str): The path to a JSON file containing the workout
+            data that's formatted as a dictionary with body types as keys and 
+            workout routines as values. 
+            
+        Side effects: 
+            Modifies the internal state of the object by loading the workout
+            data from the JSON file and storing it in the "workout" attribute.
+            
+        Primary Author: Jason Guan
+        
+        Technique(s): with statements & json.loads()
+        """
         with open(workout_file, "r", encoding = "utf-8") as workouts:
             self.workout = json.load(workouts)  
                      
     def get_body(self):
+        """ Prompts the user to enter their body type and validates the input.
+        
+        Returns:
+            str: The selected body type of the user (Ectomorph, Mesomorph, 
+            Endomorph).
+            
+        Side effects:
+            Sets the "body_type" attribute of the object.
+        """
         while True:
             body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
             if body_type in self.workout:
@@ -20,7 +57,14 @@ class WorkoutPlanner:
                 print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
 
     def workout_routine(self):
-    
+        """ Retrieves the workout routine based on the user's selected body type.
+        
+        Returns:
+            list or None: A list of exercises in the workout routine for the 
+            user's selected body type if the body type exists in the "workout"
+            dictionary. None if the user's "body_type" atrribute has not 
+            been set.
+        """
         if self.body_type in self.workout:
             return self.workout[self.body_type]
     
@@ -138,6 +182,28 @@ def nearest_gyms(location):
     return nearest_gyms
 
 def Progress_Board(max_rank, min_progression_score):
+    """ Retrieves the infromation about the active progression from a workout 
+    scoreboard based on the specified criteria.
+    
+    Args:
+        max_rank (int): The maximum rank allowed for the progressions to be
+        considered for the specified criteria. User's with a rank lower than or
+        equal to this value will be included in the results.
+        
+        min_progression_score (int): The minimum progression score required 
+        for the progressions to be considered for the specified criteria. User's
+        with a progression score higher than this value will be included in the 
+        results.
+        
+    Returns:
+        pandas.DataFrame: A DataFrame containing information about the active 
+        progressions that meets the specified criteria (rank & progression 
+        score).
+        
+    Primary Author: Jason Guan
+        
+    Technique(s): Pandas DataFrame Filtering
+    """
     score = pd.read_csv("Workout_ScoreBoard.csv", encoding="utf-8")
     active_progression = (score[(score["Rank"] <= max_rank) & 
                     (score["Progression Score"] > min_progression_score)])
