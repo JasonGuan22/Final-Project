@@ -33,7 +33,7 @@ class WorkoutPlanner:
             
         Primary Author: Jason Guan
         
-        Technique(s): with statements & json.loads()
+        Technique(s) Shown: with statements & json.loads()
         """
         with open(workout_file, "r", encoding = "utf-8") as workouts:
             self.workout = json.load(workouts)  
@@ -143,18 +143,20 @@ class Targets:
         return self.target_nutrition.get_nutritional_targets()
 
 def nearest_gyms(location):
-    """Finds the nearest gyms based on user's location. 
+    """Finds the nearest gyms based on user's location.
+     
     Args: 
         location (str): String that represents the location for the gym search.
-        Matches user's provided location with gym addresses that are nearest them. 
+        Matches user's provided location with gym addresses that are nearest them.
+        
     Returns: 
         list: List of tuples that contains gym address information and if no near gyms 
         are found, an empty list is returned. 
         
     Primary Author: Isaiah Sampilo
-    Techniques shown: Regular Expression and Sequence unpacking
-        """
-        
+    
+    Technique(s) Shown: Regular Expression & Sequence Unpacking
+    """ 
     loc_pattern = (re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE))
     gyms ={
         "Crunch Fitness": "4320 Calvert Rd, College Park, MD 20740",
@@ -196,8 +198,9 @@ def order_gyms(gyms_list):
     Returns:
         list: List of tuples containing gym information that is sorted.
         
-        Primary author: Isaiah Sampilo
-        Technique Shown: Lambda expression
+    Primary Author: Isaiah Sampilo
+        
+    Technique(s) Shown: Lambda expression
     """
     ordered_gyms = sorted(gyms_list, key=lambda gym_info: gym_info[0])
 
