@@ -141,14 +141,21 @@ class Targets:
     
     def get_nutritional_targets(self):
         return self.target_nutrition.get_nutritional_targets()
-            
-def nearest_gyms(location):
-    """Finds the nearest gyms based on user's location. Args: location (str):
-    String that represents the location for the gym search. Matches user's 
-    provided location with gym addresses that are nearest them. Returns: list: 
-    List of tuples that contains gym address information and if no near gyms 
-    are found, an empty list is returned. """
 
+def nearest_gyms(location):
+    """Finds the nearest gyms based on user's location. 
+    Args: 
+        location (str): String that represents the location for the gym search.
+        Matches user's provided location with gym addresses that are nearest them. 
+    Returns: 
+        list: List of tuples that contains gym address information and if no near gyms 
+        are found, an empty list is returned. 
+        
+    Primary Author: Isaiah Sampilo
+    Techniques shown: Regular Expression and Sequence unpacking
+        """
+        
+    loc_pattern = (re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE))
     gyms ={
         "Crunch Fitness": "4320 Calvert Rd, College Park, MD 20740",
         "Eppley Recreation Center": "4128 Valley Dr, College Park, MD 20742",
@@ -168,8 +175,7 @@ def nearest_gyms(location):
         "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
         "CrossFit Hyattsville": "4616 Ingraham St, Hyattsville, MD 20781"
     }
-    
-    loc_pattern = (re.compile(rf'\b{re.escape(location)}\b.*?(?:,\s+(?P<state>[A-Z]{2})\s+(?P<zip>\d{5}))?\b', re.IGNORECASE))
+        
     nearest_gyms = []
     for gym, address in gyms.items():
         match = re.search(loc_pattern, address)
@@ -180,6 +186,22 @@ def nearest_gyms(location):
             nearest_gyms.append((gym, address, city, state, zip_code)) 
             
     return nearest_gyms
+
+def order_gyms(gyms_list):
+    """Orders the gyms returned by the user in alphabetical order.
+
+    Args:
+        gyms_list (list): List of tuples containing the gyms information.
+
+    Returns:
+        list: List of tuples containing gym information that is sorted.
+        
+        Primary author: Isaiah Sampilo
+        Technique Shown: Lambda expression
+    """
+    ordered_gyms = sorted(gyms_list, key=lambda gym_info: gym_info[0])
+
+    return ordered_gyms
 
 def Progress_Board(max_rank, min_progression_score):
     """ Retrieves the infromation about the active progression from a workout 
@@ -226,9 +248,10 @@ if __name__ == "__main__":
     
     location = input("\nEnter your location: ")
     gyms_list = nearest_gyms(location)
-    if gyms_list:
-        print("\nNearest gyms:")
-        for gym, address, city, state, zip_code in gyms_list:
+    ordered_gyms = order_gyms(gyms_list)
+    if ordered_gyms:
+        print("\nNearest gyms in order:")
+        for gym, address, city, state, zip_code in ordered_gyms:
             print(f"{gym}: {address} ({city}, {state}, {zip_code})")
     else:
         print(f"\nNo gyms found near you.")
