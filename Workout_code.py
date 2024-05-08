@@ -176,7 +176,7 @@ def nearest_gyms(location):
     return nearest_gyms
 
 def order_gyms(gyms_list):
-    """Orders the gyms returned by the user in alphabetical order.
+    """Orders the gyms returned by the user in alphabetical order. 
 
     Args:
         gyms_list (list): List of tuples containing the gyms information.
@@ -239,11 +239,11 @@ if __name__ == "__main__":
     gyms_list = nearest_gyms(location)
     ordered_gyms = order_gyms(gyms_list)
     if ordered_gyms:
-        print("\nNearest gyms in order:")
+        print("\nNearest gyms (ordered alphabetically):")
         for gym, address, city, state, zip_code in ordered_gyms:
             print(f"{gym}: {address} ({city}, {state}, {zip_code})")
     else:
-        print(f"\nNo gyms found near you.")
+        print("\nNo gyms found near you.")
         
     print("\nWorkout app user progression board: ")
     
