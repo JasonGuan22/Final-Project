@@ -237,7 +237,7 @@ def plot_avg_progression():
     
     score_df = pd.read_csv("Workout_ScoreBoard.csv", encoding = "utf-8")
     average_score = score_df.groupby("Age ")["Progression Score"].mean().reset_index()
-    sns.barplot(x = "Age ", y = "Progression Score", data = average_score)
+    sns.barplot(x = "Age ", y = "Progression Score", data = average_score, color = "pink")
     plt.title("Average Progression Score by Age")
     plt.xlabel("Age")
     plt.ylabel("Average Progression Score")
