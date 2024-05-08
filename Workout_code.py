@@ -223,6 +223,17 @@ def Progress_Board(max_rank, min_progression_score):
     return active_progression
 
 def plot_avg_progression():
+    """ Reads the Workout_Scoreboard.csv that contains the workout score, 
+    calculates the average progression score by age, and plot a bar chart showign
+    the average progression score for each age group.
+    
+    Displays the DataFrame with the calculated average scores by Age group
+    
+    Primary Author: Hayat Hussein 
+    
+    Technique(s): Pandas DataFrame Filtering, Seaborn Visualization, Matplot.lib
+    
+    """
     
     score_df = pd.read_csv("Workout_ScoreBoard.csv", encoding = "utf-8")
     average_score = score_df.groupby("Age ")["Progression Score"].mean().reset_index()
