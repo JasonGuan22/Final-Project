@@ -231,7 +231,7 @@ def plot_avg_progression():
     
     Primary Author: Hayat Hussein 
     
-    Technique(s): Pandas DataFrame Filtering, Seaborn Visualization, Matplot.lib
+    Technique(s): Pandas DataFrame Filtering, Seaborn Visualization, Matplot.lib Custom
     
     """
     
