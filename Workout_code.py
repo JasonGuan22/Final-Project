@@ -105,7 +105,7 @@ class WorkoutPlanner:
         
         return meal_plan
 
-    def get_cut_bulk_goal(self, default_goal = "cut", min_input_length = 2):
+    def get_cut_bulk_goal(self, default_goal ="cut", min_input_length = 2):
         while True:
             goal = input("Are you looking to cut or bulk? (default goal is to cut): ")
             if len(goal) < min_input_length:
