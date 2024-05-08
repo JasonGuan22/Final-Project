@@ -1,9 +1,9 @@
 from argparse import ArgumentParser
+import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 import json
 import re
-import matplotlib.pyplot as plt
 
 class WorkoutPlanner:
     """ This class helps users plan their workouts based on their bodytype.
@@ -217,11 +217,20 @@ def Progress_Board(max_rank, min_progression_score):
         
     Technique(s): Pandas DataFrame Filtering
     """
-    score = pd.read_csv("Workout_ScoreBoard.csv", encoding="utf-8")
+    score = pd.read_csv("Workout_ScoreBoard.csv", encoding = "utf-8")
     active_progression = (score[(score["Rank"] <= max_rank) & 
                     (score["Progression Score"] > min_progression_score)])
     return active_progression
 
+def plot_avg_progression():
+    
+    score_df = pd.read_csv("Workout_ScoreBoard.csv", encoding = "utf-8")
+    average_score = score_df.groupby("Age ")["Progression Score"].mean().reset_index()
+    sns.barplot(x = "Age ", y = "Progression Score", data = average_score)
+    plt.title("Average Progression Score by Age")
+    plt.xlabel("Age")
+    plt.ylabel("Average Progression Score")
+    plt.show()
 
 if __name__ == "__main__":
     target_nutrition = WorkoutPlanner("workout.json")
@@ -255,15 +264,9 @@ if __name__ == "__main__":
     filtered_data = Progress_Board(max_rank_input, min_progression_score_input)
     print(filtered_data) 
     
-def plot_avg_progression():
-    score_df = pd.read.csv("Workout_ScoreBoard.csv", encoding="utf-8")
+    plot_avg_progression()
     
-    avg_scores = score_df.groupby('Age')['Progression Score'].mean().reset_index()
-    sns.barplot(x='Age', y='Progression Score', data= avg_scores)
-    plt.title('Average Progression Score by Age')
-    plt.xlabel('Age')
-    plt.ylabel('Average Progression Score')
-    plt.show()
+
 
 
 
