@@ -3,6 +3,7 @@ import pandas as pd
 import seaborn as sns
 import json
 import re
+import matplotlib.pyplot as plt
 
 class WorkoutPlanner:
     """ This class helps users plan their workouts based on their bodytype.
@@ -252,7 +253,17 @@ if __name__ == "__main__":
     min_progression_score_input = int(input("\nEnter the minimum progression score: "))
 
     filtered_data = Progress_Board(max_rank_input, min_progression_score_input)
-    print(filtered_data)
+    print(filtered_data) 
+    
+def plot_avg_progression():
+    score_df = pd.read.csv("Workout_ScoreBoard.csv", encoding="utf-8")
+    
+    avg_scores = score_df.groupby('Age')['Progression Score'].mean().reset_index()
+    sns.barplot(x='Age', y='Progression Score', data= avg_scores)
+    plt.title('Average Progression Score by Age')
+    plt.xlabel('Age')
+    plt.ylabel('Average Progression Score')
+    plt.show()
 
 
 
