@@ -1,31 +1,31 @@
 Rank,"Last_Name, First_Name",Age ,Gender,"City, State",Progression Score
 1,"Smith, John",35,M,"Rockville, MD",7
-2,"Johnson, Emily",28,F,"Hagerstown, MD",-3
-3,"Williams, Michael",42,M,"College Park, MD",5
-4,"Brown, Sarah",31,F,"Rockville, MD",-6
+2,"Johnson, Emily",28,F,"Hagerstown, MD",4
+3,"Williams, Michael",42,M,"College Park, MD",-9
+4,"Brown, Sarah",31,F,"Rockville, MD",5
 5,"Jones, David",29,M,"Hagerstown, MD",9
 6,"Garcia, Jessica",39,F,"College Park, MD",2
-7,"Martinez, Chris",45,M,"Gaithersburg, MD",-2
-8,"Robinson, Ashley",36,F,"Rockville, MD",8
+7,"Martinez, Chris",45,M,"Gaithersburg, MD",-9
+8,"Robinson, Ashley",36,F,"Rockville, MD",5
 9,"Clark, Daniel",33,M,"Hagerstown, MD",4
-10,"Rodriguez, Amanda",27,F,"Gaithersburg, MD",-5
+10,"Rodriguez, Amanda",27,F,"Gaithersburg, MD",9
 11,"Nguyen, Kevin",29,M,"Rockville, MD",3
 12,"Kim, Jennifer",35,F,"Silver Spring, MD",-2
-13,"Patel, Raj",40,M,"Gaithersburg, MD",6
-14,"Lee, Emily",31,F,"Rockville, MD",1
-15,"Singh, Aisha",27,F,"Silver Spring, MD",-4
-16,"Hernandez, Carlos",38,M,"Silver Spring, MD",8
-17,"Garcia, Maria",42,F,"Rockville, MD",-5
-18,"Martinez, Juan",33,M,"Bethesda, MD",7
+13,"Patel, Raj",40,M,"Gaithersburg, MD",-3
+14,"Lee, Emily",31,F,"Rockville, MD",4
+15,"Singh, Aisha",27,F,"Silver Spring, MD",8
+16,"Hernandez, Carlos",38,M,"Silver Spring, MD",-4
+17,"Garcia, Maria",42,F,"Rockville, MD",-8
+18,"Martinez, Juan",33,M,"Bethesda, MD",-5
 19,"Smith, Rachel",36,F,"Rockville, MD",-3
 20,"Johnson, Alex",30,M,"College, MD",2
 21,"Brown, Samantha",34,F,"Rockville, MD",-1
-22,"Wilson, Matthew",37,M,"Bethesda, MD",5
-23,"Gonzalez, Laura",32,F,"Rockville, MD",-4
+22,"Wilson, Matthew",37,M,"Bethesda, MD",3
+23,"Gonzalez, Laura",32,F,"Rockville, MD",-2
 24,"Anderson, Tyler",28,M,"College Park, MD",6
-25,"Thomas, Emma",26,F,"Hargerstown, MD",3
+25,"Thomas, Emma",26,F,"Hargerstown, MD",4
 26,"White, Ryan",39,M,"Bethesda, MD",-3
 27,"Lewis, Olivia",30,F,"Rockville, MD",8
-28,"Hall, Jacob",41,M,"Hargerstown, MD",2
+28,"Hall, Jacob",41,M,"Hargerstown, MD",-5
 29,"Allen, Megan",35,F,"College Park, MD",-2
-30,"King, Amanda",33,F,"Rockville, MD",7
+30,"King, Amanda",33,F,"Rockville, MD",-4
