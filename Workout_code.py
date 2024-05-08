@@ -107,6 +107,25 @@ class WorkoutPlanner:
         return meal_plan
 
     def get_cut_bulk_goal(self, default_goal ="cut", min_input_length = 2):
+        """
+        This function asks the user to input their goal of either cutting or bulking. 
+        The function will continuously prompt the user until a valid input is provided.
+        If the input is too short, it will use the default goal, which is to cut.
+        
+        Args:
+        default_goal (str, optional): The default goal if the user input is invalid or too short. 
+            Defaults to "cut".
+        min_input_length (int, optional): The minimum length of input required from the user. 
+            Defaults to 2.
+            
+            Returns:
+            str: The user's goal, either "cut" or "bulk", converted to lowercase.
+            
+        Primary Author: Zayd Mahfuz
+        
+        Technique(s) Shown: conditional expressions & optional parameters
+        """
+
         while True:
             goal = input("Are you looking to cut or bulk? (default goal is to cut): ")
             if len(goal) < min_input_length:
@@ -116,7 +135,19 @@ class WorkoutPlanner:
                     goal.lower() in self.targets else default_goal)
 
     def get_nutritional_targets(self):
+        """
+        Retrieves the user's body type, workout routine, cut/bulk goal, and 
+        the corresponding daily nutritional targets.
         
+        Returns:
+        dict: A dictionary containing the user's body type, workout routine, cut/bulk goal, 
+        and corresponding nutritional targets.
+        
+        Primary Author: Zayd Mahfuz
+        
+        Technique(s) Shown: N/A  
+    """
+    
         self.body_type = self.get_body()
         cut_bulk_goal = self.get_cut_bulk_goal()
         workout_routine = self.workout_routine()  
@@ -266,16 +297,6 @@ if __name__ == "__main__":
     
     plot_avg_progression()
     
-
-
-
-
-
-
-
-
-
-
 
 
 
