@@ -75,7 +75,20 @@ class WorkoutPlanner:
             return self.workout[self.body_type]
     
     def meal_planner(self):
-
+        """ Creates a personalized meal planner based on body type 
+         
+        Returns:
+            str: A string containing the meal plan for the body type selected,
+            including breakfast, lunch and dinner.
+            
+        Raises:
+            ValueError: If an invalid body type is provided, valid body types
+            are "Ectomorph", "Mesomorph", and "Endomorph".
+         
+        Primary Author: Hayat Hussein 
+    
+        Technique(s) Shown: f-strings containing expressions
+        """
         meal_plans = {
             "Ectomorph": {
                 "Breakfast": "Oatmeal topped with strawberry and walnuts",
@@ -223,18 +236,18 @@ def Progress_Board(max_rank, min_progression_score):
     return active_progression
 
 def plot_avg_progression():
-    """ Reads the Workout_Scoreboard.csv that contains the workout score, 
-    calculates the average progression score by age, and plot a bar chart showign
-    the average progression score for each age group.
+    """ Reads the "Workout_Scoreboard.csv" that contains the workout score, and 
+    calculates the average progression score by age. A bar chart showing the 
+    average progression score for each age group.
     
-    Displays the DataFrame with the calculated average scores by Age group
+    The bar chart displays the DataFrame with the calculated average scores 
+    by Age group.
     
     Primary Author: Hayat Hussein 
     
-    Technique(s): Pandas DataFrame Filtering, Seaborn Visualization, Matplot.lib Custom
-    
+    Technique(s) Shown: Pandas DataFrame Filtering, Seaborn Visualization, and 
+    Matplot.lib Custom
     """
-    
     score_df = pd.read_csv("Workout_ScoreBoard.csv", encoding = "utf-8")
     average_score = score_df.groupby("Age ")["Progression Score"].mean().reset_index()
     sns.barplot(x = "Age ", y = "Progression Score", data = average_score, color = "pink")
