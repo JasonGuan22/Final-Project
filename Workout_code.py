@@ -37,6 +37,11 @@ class WorkoutPlanner:
         """
         with open(workout_file, "r", encoding = "utf-8") as workouts:
             self.workout = json.load(workouts)  
+            
+        self.targets = {  
+            "cut": ["Protein: 50g", "Carbs: 40g", "Fat: 15g"],
+            "bulk": ["Protein: 70g", "Carbs: 60g", "Fat: 40g"],
+        }
                      
     def get_body(self):
         """ Prompts the user to enter their body type and validates the input.
@@ -51,7 +56,7 @@ class WorkoutPlanner:
         while True:
             body_type = input("Please enter your body type (Ectomorph, Mesomorph, Endomorph) ")
             if body_type in self.workout:
-                self.body_type = body_type
+                
                 return body_type
             else:
                 print("Invalid body type. Please enter either Ectomorph, Mesomorph, Endomorph")
@@ -100,28 +105,20 @@ class WorkoutPlanner:
         
         return meal_plan
 
-class TargetNutrition(WorkoutPlanner):
-
-    def __init__(self, workout_file):
-        super().__init__(workout_file) 
-        self.targets = {  
-            "cut": ["Protein: 60g", "Carbs: 40g", "Fat: 30g"],
-            "bulk": ["Protein: 70g", "Carbs: 60g", "Fat: 40g"],
-        }
-
-    def get_cut_bulk_goal(self):
+    def get_cut_bulk_goal(self, default_goal = "cut", min_input_length = 2):
         while True:
-            goal = input("Are you looking to cut or bulk (cut/bulk): ")
-            if goal.lower() in self.targets:
-                return goal.lower()
-            else:
-                print("Invalid goal. Please enter either cut or bulk")
+            goal = input("Are you looking to cut or bulk? (default goal is to cut): ")
+            if len(goal) < min_input_length:
+                print(f"\nInvalid input. Minimum length is {min_input_length} characters. \
+                      \nThe default goal will be used.")
+            return (goal.lower() if len(goal) >= min_input_length and 
+                    goal.lower() in self.targets else default_goal)
 
     def get_nutritional_targets(self):
         
         self.body_type = self.get_body()
         cut_bulk_goal = self.get_cut_bulk_goal()
-        workout_routine = super().workout_routine()  
+        workout_routine = self.workout_routine()  
 
         target_plan = {
             "body_type": self.body_type,
@@ -131,17 +128,6 @@ class TargetNutrition(WorkoutPlanner):
         }
         return target_plan
     
-class Targets: 
-    def __init__(self, workout_file):
-        self.workout_planner = WorkoutPlanner(workout_file)
-        self.target_nutrition = TargetNutrition(workout_file)
-        
-    def get_body_type(self):
-        return self.workout_planner.get_body()
-    
-    def get_nutritional_targets(self):
-        return self.target_nutrition.get_nutritional_targets()
-
 def nearest_gyms(location):
     """Finds the nearest gyms based on user's location.
      
@@ -236,7 +222,7 @@ def Progress_Board(max_rank, min_progression_score):
 
 
 if __name__ == "__main__":
-    target_nutrition = TargetNutrition("workout.json")
+    target_nutrition = WorkoutPlanner("workout.json")
     nutritional_plan = target_nutrition.get_nutritional_targets()
     
     print(f"\nBased on your body type ({nutritional_plan['body_type']}) and goal ({nutritional_plan['cut_bulk']}):")
