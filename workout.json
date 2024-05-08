@@ -1,6 +1,5 @@
 {
-    "Ectomorph": {
-      "Workout Routine": ["Bench Press", "Pull Ups", "Deadlifts", "Squats", 
+    "Ectomorph": ["Bench Press", "Pull Ups", "Deadlifts", "Squats", 
       "Standing Military Press", "Pull-Ups", "Overhead Press", "Lunges", 
       "Bicep Dumbbell Curls", "Tricep Dumbbell Extensions", "Leg Curls", 
       "Leg Extensions", "Calf Raises", "Dumbbell Shrugs", "Running", 
@@ -8,9 +7,8 @@
       "Battle Ropes", "Agility Ladder Drills", "Planks", "Russian Twists", 
       "Bicycle Crunches", "Leg Raises", "Mountain Climbers", "Yoga", 
       "Dynamic Stretching"]
-    },
-    "Mesomorph": {
-      "Workout Routine": ["Pushups", "Burpee", "Mountain Climbers", "Lunges", 
+    ,
+    "Mesomorph": ["Pushups", "Burpee", "Mountain Climbers", "Lunges", 
       "Shoulder Press", "Lunges", "Jump Squats", "Sprints", "Jumping Lunges", 
       "High Knees", "Box Jumps", "Back Squat", "Front Squat", 
       "Conventional Deadlift", "Sumo Deadlift", "Flat Bench Press", 
@@ -19,15 +17,14 @@
       "Jump Squats", "Barbell Thrusters", "Turkish Get-Ups", "Tire Flips", 
       "Farmer's Walks", "Swimming", "Cycling (indoor or outdoor)", 
       "Bicept Curls", "Tricep Dips", "Leg Press"]
-    },
-    "Endomorph": {
-      "Workout Routine": ["Treadmill Sprint", "Barbell Back Squat", 
+    ,
+    "Endomorph": ["Treadmill Sprint", "Barbell Back Squat", 
       "Battling Ropes", "Indoor Cycling", "Walking (brisk pace)", "Jogging", 
       "Stationary Cycling", "Stair Climbing", 
       "Squats (bodyweight or with weights)", "Deadlifts", "Lunges", 
       "Leg Presses", "Dumbbell or Barbell Chest Presses", "Lat Pulldowns", 
       "Bicep Curls", "Tricep Dips", "Planks", "Burpees", "Jump Squats", 
       "Mountain Climbers", "Battle Ropes", "Medcine Ball Slams"]
-    }
+    
   }
     
