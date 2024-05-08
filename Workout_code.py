@@ -159,7 +159,7 @@ def nearest_gyms(location):
         "LA Fitness": "8616 Cameron St, Silver Spring, MD 20910",   
         "Gold's Gym": "4595 Woodberry St, Riverdale Park, MD 20737",
         "Greenbelt Aquatic and Fitness Center": "101 Centerway, Greenbelt, MD 20770",
-        "Prince George's Sports & Learning Complex": " 8001 Sheriff Rd, Landover, MD 20785",
+        "Prince George's Sports & Learning Complex": "8001 Sheriff Rd, Landover, MD 20785",
         "LA Fitness": "9450 Ruby Lockhart Blvd, Lanham, MD 20706",
         "CrossFit Hyattsville": "4616 Ingraham St, Hyattsville, MD 20781"
     }
@@ -176,7 +176,8 @@ def nearest_gyms(location):
     return nearest_gyms
 
 def order_gyms(gyms_list):
-    """Orders the gyms returned by the user in alphabetical order. 
+    """Orders the gyms returned by the user ordered by their address. The lower 
+    numbered addresses at the top then the higher number address going down. 
 
     Args:
         gyms_list (list): List of tuples containing the gyms information.
@@ -188,7 +189,7 @@ def order_gyms(gyms_list):
         
     Technique(s) Shown: Lambda expression
     """
-    ordered_gyms = sorted(gyms_list, key=lambda gym_info: gym_info[0])
+    ordered_gyms = sorted(gyms_list, key=lambda gym_info: gym_info[1])
 
     return ordered_gyms
 
@@ -239,7 +240,7 @@ if __name__ == "__main__":
     gyms_list = nearest_gyms(location)
     ordered_gyms = order_gyms(gyms_list)
     if ordered_gyms:
-        print("\nNearest gyms (ordered alphabetically):")
+        print("\nNearest gyms (ordered by address):")
         for gym, address, city, state, zip_code in ordered_gyms:
             print(f"{gym}: {address} ({city}, {state}, {zip_code})")
     else:
