@@ -7,7 +7,7 @@ healthy lifestyle by providing personalized workout routines, meal plans,
 nearest gym locations, and tracking workout progressions.
 
 2. To run the program you need to first open the terminal and run Python3 
-Workout_code.py (Mac User's) or Python Workout_code.py (Window User's) on the 
+Workout_code.py (Mac Users) or Python Workout_code.py (Window Users) on the 
 command line.
 
 # Instructions
@@ -29,37 +29,36 @@ the users selected body types.
 
 4. The meal_planner method creates a personalized meal plan correlated to the selected
 body type, either (Ectomorph, Mesomorph, Endomorph), which includes the meal plan for
-breakfest, lunch, and dinner. It will raise ValueError on the terminal if the body type
+breakfast, lunch, and dinner. It will raise ValueError on the terminal if the body type
 is invaild and won't create a personalized meal plan correlated to the selected
 body type.
 
-5. The get_cut_bulk_goal method prompts the user's to enter their goal of eithr 
-cutting or bulking on the terminal. You must enter either cut or bulk and it will
-continuously prompt you until the a valid input is provided on the terminal, which 
-is either cut or bulk. If the input provided on the terminal is too short, 
-it will use the default goal, which is to cut. 
+5. The get_cut_bulk_goal method prompts the user's to enter their goal of either 
+cutting or bulking on the terminal. You must enter either cut or bulk based on 
+what the user's goal is. If the input provided on the terminal is too short 
+(less than 2 characters), it will use the default goal, which is a "cut" plan. 
 
-    - Once you enter your goal of either to cut or bulk, in the terminal it will
-return/output all the workout routine/exercises you could chose from and it will 
-display your daily target nutrients, the amount of proteins, carbs, and fat in grams
-you need to consume. It then will also display your meal plan for your body type,
-which the meal plan will provide the meals for breakfest, lunch and dinner in
-the terminal.
 
-6. The nearest_gyms function
+6. The get_nutritional_targets method outputs all the workout routine/exercises
+ you could chose from and it will display your daily target nutrients, which is
+ the amount of proteins, carbs, and fats in grams that you need to consume. 
+ It will also display the meal plan based on your body type and goal for breakfast, 
+ lunch, and dinner in the terminal.
 
-7. The order_gyms function
+7. The nearest_gyms function
 
+8. The order_gyms function
 
 
 
 
-8. The Progress_Board function reads in data from a csv file containing the
+
+9. The Progress_Board function reads in data from a csv file containing the
 data of users using this workout app. It retrieves the information 
 
 
 
-9. The plot_avg_progression function will display the barplot of the 
+10. The plot_avg_progression function will display the barplot of the 
 
 
 This bar plot displays the Average Progression Score by Age. The Average Progression Score is calculated by the overall effort put into following the dietary meal plans and workouts based on the user's body type. A trend identified is that as the user's age increases, the Average Progression Score decreases. For users ages 40 and above, the average progression score typically declines to below -7.5. This can be due to several factors attributed to aging such as a decreased metabolism, hormonal changes, and challenges in finding enough time to adhere to the workout/meal plan. For ages 30 and below, the Average Progression Score is positive with the peak average score at age 27, above 7.5. This can be attributed to having a faster metabolism, health goals, and following fitness trends seen on social media. 
