@@ -18,28 +18,28 @@ dictionary conttaining the workout gets loaded from the file.
 
     - The JSON file contains all the exercises for each body types.
 
-2. The get_body method prompts the user's to enter their body type on the terminal, 
+2. The get_body function prompts the user's to enter their body type on the terminal, 
 you must enter one of the three main body types (Ectomorph, Mesomorph, Endomorph)
 in the terminal or else it will return "invlaid body type" and it will make you 
 enter one of the three body type again until it's a vaild body type which is (Ectomorph, 
 Mesomorph, Endomorph).  
 
-3. The workout_routine method gets the workout routine/exercises that correlates to 
+3. The workout_routine function gets the workout routine/exercises that correlates to 
 the users selected body types. 
 
-4. The meal_planner method creates a personalized meal plan correlated to the selected
+4. The meal_planner function creates a personalized meal plan correlated to the selected
 body type, either (Ectomorph, Mesomorph, Endomorph), which includes the meal plan for
 breakfast, lunch, and dinner. It will raise ValueError on the terminal if the body type
 is invaild and won't create a personalized meal plan correlated to the selected
 body type.
 
-5. The get_cut_bulk_goal method prompts the user's to enter their goal of either 
+5. The get_cut_bulk_goal function prompts the user's to enter their goal of either 
 cutting or bulking on the terminal. You must enter either cut or bulk based on 
 what the user's goal is. If the input provided on the terminal is too short 
 (less than 2 characters), it will use the default goal, which is a "cut" plan. 
 
 
-6. The get_nutritional_targets method outputs all the workout routine/exercises
+6. The get_nutritional_targets function outputs all the workout routine/exercises
  you could chose from and it will display your daily target nutrients, which is
  the amount of proteins, carbs, and fats in grams that you need to consume. 
  It will also display the meal plan based on your body type and goal for breakfast, 
