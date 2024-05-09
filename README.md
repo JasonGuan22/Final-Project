@@ -45,12 +45,17 @@ what the user's goal is. If the input provided on the terminal is too short
  It will also display the meal plan based on your body type and goal for breakfast, 
  lunch, and dinner in the terminal.
 
-7. The nearest_gyms function
+6. The nearest_gyms function takes the users location and returns gyms near the users 
+location.  Gyms are stored in a dictionary with the name of the gym first then the 
+gym's address. When my part of the function pops up, you can enter the city, ex. 
+College Park, state, ex. MD, zipcode, ex. 20740, or a gyms street address.  When 
+entering an address, it is case sensitive and will return no gyms if inputed wrong. 
+If inputting a state, it has to be in two captial letters for the state like MD or VA.
+The city has to be in the format of the first letter of the city has to be capitalized.
 
-8. The order_gyms function
-
-
-
+7. The order_gyms function orders the gyms that has been returned in order of the 
+street address.  For example, an address that starts with 1000 will be returned at 
+the top and then an address that starts with 4000 will be further down the list. 
 
 
 9. The Progress_Board function reads in data from a csv file containing the
