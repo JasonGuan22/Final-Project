@@ -89,7 +89,7 @@ decreased metabolism, hormonal changes, and challenges in finding enough time to
 adhere to the workout/meal plan. For ages 30 and below, the Average Progression 
 Score is positive with the peak average score at age 27, above 7.5. This can be 
 attributed to having a faster metabolism, health goals, and following fitness 
-trends seen on social media. 
+trends seen on social media.
 
 # A table indicating primary author of each major function or method
 
