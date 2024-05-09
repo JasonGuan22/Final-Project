@@ -45,7 +45,7 @@ what the user's goal is. If the input provided on the terminal is too short
  It will also display the meal plan based on your body type and goal for breakfast, 
  lunch, and dinner in the terminal.
 
-7. The nearest_gyms function takes the users location and returns gyms near the users 
+6. The nearest_gyms function takes the users location and returns gyms near the users 
 location.  Gyms are stored in a dictionary with the name of the gym first then the 
 gym's address. When my part of the function pops up, you can enter the city, ex. 
 College Park, state, ex. MD, zipcode, ex. 20740, or a gyms street address.  When 
@@ -53,43 +53,22 @@ entering an address, it is case sensitive and will return no gyms if inputed wro
 If inputting a state, it has to be in two captial letters for the state like MD or VA.
 The city has to be in the format of the first letter of the city has to be capitalized.
 
-8. The order_gyms function orders the gyms that has been returned in order of the 
+7. The order_gyms function orders the gyms that has been returned in order of the 
 street address.  For example, an address that starts with 1000 will be returned at 
 the top and then an address that starts with 4000 will be further down the list. 
 
+
 9. The Progress_Board function reads in data from a csv file containing the
-data of users on this workout app. It retrieves the information of the users active 
-progression based on the users specified criteria. You will enter the maximum rank you
-want to see in the terminal, the rank ranges from 1 to 30, which any rank you enter in the 
-terminal between 1 to 30 will be valid. If the rank provided in the terminal is 
-not between 1 to 30, the dataframe will display nothing since our csv file only contains,
-users rank from 1 to 30. 
+data of users using this workout app. It retrieves the information 
 
-After entering your specified maximum rank, you will then enter the minimum progression score
-in the terminal. The progression score showcases the overall effort users put into 
-following their dietary meal plans and workouts based on their body type. The 
-progression scores ranges from 9 to -9. Progression scores that are 9 indicates that 
-the users have been active following their dietary meal plans and workouts, while -9 indicates
-that the users have not been active following their dietary meal plans and workouts.
 
-After entering your specified criteria for maximum rank and progression score, a dataframe 
-will display in the terminal showcasing the results. 
 
-10. The plot_avg_progression function will display a barplot that calculates the average
-progression score by age and also displaying the average progression score for 
-each age group in a different window.
+10. The plot_avg_progression function will display the barplot of the 
 
-This bar plot displays the Average Progression Score by Age. The Average 
-Progression Score is calculated by the overall effort put into following the 
-dietary meal plans and workouts based on the user's body type. A trend identified 
-is that as the user's age increases, the Average Progression Score decreases. 
-For users ages 40 and above, the average progression score typically declines to 
-below -7.5. This can be due to several factors attributed to aging such as a 
-decreased metabolism, hormonal changes, and challenges in finding enough time to 
-adhere to the workout/meal plan. For ages 30 and below, the Average Progression 
-Score is positive with the peak average score at age 27, above 7.5. This can be 
-attributed to having a faster metabolism, health goals, and following fitness 
-trends seen on social media. 
+
+This bar plot displays the Average Progression Score by Age. The Average Progression Score is calculated by the overall effort put into following the dietary meal plans and workouts based on the user's body type. A trend identified is that as the user's age increases, the Average Progression Score decreases. For users ages 40 and above, the average progression score typically declines to below -7.5. This can be due to several factors attributed to aging such as a decreased metabolism, hormonal changes, and challenges in finding enough time to adhere to the workout/meal plan. For ages 30 and below, the Average Progression Score is positive with the peak average score at age 27, above 7.5. This can be attributed to having a faster metabolism, health goals, and following fitness trends seen on social media. 
+
+
 
 # A table indicating primary author of each major function or method
 
