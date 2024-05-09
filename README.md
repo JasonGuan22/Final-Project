@@ -55,19 +55,38 @@ the terminal.
 
 
 8. The Progress_Board function reads in data from a csv file containing the
-data of users using this workout app. It retrieves the information 
+data of users on this workout app. It retrieves the information of the users active 
+progression based on the users specified criteria. You will enter the maximum rank you
+want to see in the terminal, the rank ranges from 1 to 30, which any rank you enter in the 
+terminal between 1 to 30 will be valid. If the rank provided in the terminal is 
+not between 1 to 30, the dataframe will display nothing since our csv file only contains,
+users rank from 1 to 30. 
 
+After entering your specified maximum rank, you will then enter the minimum progression score
+in the terminal. The progression score showcases the overall effort users put into 
+following their dietary meal plans and workouts based on their body type. The 
+progression scores ranges from 9 to -9. Progression scores that are 9 indicates that 
+the users have been active following their dietary meal plans and workouts, while -9 indicates
+that the users have not been active following their dietary meal plans and workouts.
 
+After entering your specified criteria for maximum rank and progression score, a dataframe 
+will display in the terminal showcasing the results. 
 
-9. The plot_avg_progression function will display the barplot of the 
+9. The plot_avg_progression function will display a barplot that calculates the average
+progression score by age and also displaying the average progression score for 
+each age group in a different window.
 
-
-This bar plot displays the Average Progression Score by Age. The Average Progression Score is calculated by the overall effort put into following the dietary meal plans and workouts based on the user's body type. A trend identified is that as the user's age increases, the Average Progression Score decreases. For users ages 40 and above, the average progression score typically declines to below -7.5. This can be due to several factors attributed to aging such as a decreased metabolism, hormonal changes, and challenges in finding enough time to adhere to the workout/meal plan. For ages 30 and below, the Average Progression Score is positive with the peak average score at age 27, above 7.5. This can be attributed to having a faster metabolism, health goals, and following fitness trends seen on social media. 
-
-
-
-
-
+This bar plot displays the Average Progression Score by Age. The Average 
+Progression Score is calculated by the overall effort put into following the 
+dietary meal plans and workouts based on the user's body type. A trend identified 
+is that as the user's age increases, the Average Progression Score decreases. 
+For users ages 40 and above, the average progression score typically declines to 
+below -7.5. This can be due to several factors attributed to aging such as a 
+decreased metabolism, hormonal changes, and challenges in finding enough time to 
+adhere to the workout/meal plan. For ages 30 and below, the Average Progression 
+Score is positive with the peak average score at age 27, above 7.5. This can be 
+attributed to having a faster metabolism, health goals, and following fitness 
+trends seen on social media. 
 
 # A table indicating primary author of each major function or method
 
